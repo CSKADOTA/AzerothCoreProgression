@@ -31,8 +31,8 @@ SET phaseMask = '16384'
 WHERE id1 IN (40160,38433,35013,35360,33993);
 -- Disable NPC: Frozo the Renowned, VOA bosses
 -- Smelt Titansteel 20 Hours cooldown
-INSERT INTO spell_dbc (ID, RecoveryTime)
-VALUES (55208, 72000000);
+INSERT INTO acore_world.spell_cooldown_overrides (Id,RecoveryTime,CategoryRecoveryTime,StartRecoveryTime,StartRecoveryCategory,Comment) VALUES
+	 (55208,72000000,0,0,0,'3.3.3 cooldown');
 -- Smelt Titansteel 20 Hours cooldown
 -- All 3.1-3.3 raids and dungeons disable
 INSERT INTO disables (sourceType, entry, comment)
