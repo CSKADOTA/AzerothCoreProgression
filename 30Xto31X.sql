@@ -1,32 +1,32 @@
---Replace daily dungeon emblems from trumph to Heroism
+--Replace daily dungeon emblems
 UPDATE quest_template
 SET RewardItem1 = '45624'
 WHERE RewardItem1 = '40753'
   AND LogTitle LIKE '%Daily%';
---Replace daily dungeon emblems from trumph to Heroism
---Replace daily dungeon emblems from frost to Valor
+--Replace daily dungeon emblems
+--Replace daily dungeon emblems
 UPDATE quest_template
 SET RewardItem1 = '40753'
 WHERE RewardItem1 = '40752'
   AND LogTitle LIKE '%Daily%';
---Replace daily dungeon emblems from frost to Valor
---Replace daily quests emblems from trumph to Valor
+--Replace daily dungeon emblems
+--Replace daily quests emblems
 UPDATE quest_template
 SET RewardItem1 = '45624'
 WHERE LogTitle LIKE '%Proof%';
 UPDATE quest_template
 SET RewardItem1 = '45624'
 WHERE LogTitle LIKE '%Timear Foresees%';
---Replace daily quests emblems from trumph to Valor
---Disable NPC: Frozo the Renowned, Toravon the Ice Watcher
+--Replace daily quests emblems
+--Enable VOA boss
 UPDATE creature
 SET phaseMask = '1' 
 WHERE id1 IN (33993);
---Disable NPC: Frozo the Renowned, Toravon the Ice Watcher
---All 3.1-3.3 raids and dungeons disable
+--Enable VOA boss
+--Enable Ulduar
 DELETE FROM disables WHERE comment = 'Disabled dungeon/raid 3.1';
---All 3.1-3.3 raids and dungeons disable
---Delete all S6 Gears
+--Enable Ulduar
+--Recover all S6 Gears
 INSERT INTO npc_vendor (entry,slot,item,maxcount,incrtime,ExtendedCost,VerifiedBuild) VALUES
 	 (33915,0,40787,0,0,2622,0),
 	 (33915,0,40788,0,0,2622,0),
@@ -467,15 +467,14 @@ INSERT INTO npc_vendor (entry,slot,item,maxcount,incrtime,ExtendedCost,VerifiedB
 	 (33934,0,40808,0,0,2960,0),
 	 (33934,0,40809,0,0,2960,0),
 	 (33934,0,40826,0,0,2959,0);
-
---Delete all S6 Gears
---Delete all 3.1 Rings
+--Recover all S6 Gears
+--Recover all 3.1 Rings
 INSERT INTO acore_world.npc_vendor (entry,slot,item,maxcount,incrtime,ExtendedCost,VerifiedBuild) VALUES
 	 (32172,0,45688,0,0,2592,0),
 	 (32172,0,45689,0,0,2593,0),
 	 (32172,0,45690,0,0,2594,0),
 	 (32172,0,45691,0,0,2595,0);
---Delete all 3.1 Rings
+--Recover all 3.1 Rings
 --Loot emblem to Valor
 UPDATE item_loot_template
 SET Item = '40753'
