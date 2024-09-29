@@ -19,10 +19,10 @@ WHERE RewardItem1 = '49426'
 --Replace daily dungeon emblems from frost to Valor
 --Replace daily quests emblems from trumph to Valor
 UPDATE acore_world.quest_template
-SET RewardItem1 = '40752'
+SET RewardItem1 = '40753'
 WHERE LogTitle LIKE '%Proof%';
 UPDATE acore_world.quest_template
-SET RewardItem1 = '40752'
+SET RewardItem1 = '40753'
 WHERE LogTitle LIKE '%Timear Foresees%';
 --Replace daily quests emblems from trumph to Valor
 --Disable NPC: Frozo the Renowned, Toravon the Ice Watcher
