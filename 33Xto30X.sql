@@ -25,11 +25,11 @@ UPDATE quest_template
 SET RewardItem1 = '40753'
 WHERE LogTitle LIKE '%Timear Foresees%';
 --Replace daily quests emblems from trumph to Valor
---Disable NPC: Frozo the Renowned, Toravon the Ice Watcher
+--Disable NPC: Frozo the Renowned, VOA bosses
 UPDATE creature
 SET phaseMask = '16384' 
 WHERE id1 IN (40160,38433,35013,35360,33993);
---Disable NPC: Frozo the Renowned, Toravon the Ice Watcher
+--Disable NPC: Frozo the Renowned, VOA bosses
 --Smelt Titansteel 20 Hours cooldown
 INSERT INTO spell_dbc (ID, RecoveryTime)
 VALUES (55208, 72000000);
@@ -114,21 +114,26 @@ DELETE FROM npc_vendor
 WHERE item IN (
     SELECT entry
     FROM item_template
-    WHERE name LIKE '%Cardinal Ruby%' OR
-          name LIKE "%King's Amber%" OR
-		  name LIKE "%Majestic Zircon%" OR
-		  name LIKE "%Dreadstone%" OR
-		  name LIKE "%Ametrine%" OR
-		  name LIKE "%Eye of Zul%" AND
-		  entry > 30000;
+    WHERE (
+        name LIKE '%Cardinal Ruby%' OR
+        name LIKE '%King''s Amber%' OR
+        name LIKE '%Majestic Zircon%' OR
+        name LIKE '%Dreadstone%' OR
+        name LIKE '%Ametrine%' OR
+        name LIKE '%Eye of Zul%'
+    )
+    AND entry > 30000
+);
 DELETE FROM item_template
-WHERE name LIKE '%Cardinal Ruby%' OR
-      name LIKE "%King's Amber%" OR
-      name LIKE "%Majestic Zircon%" OR
-	  name LIKE "%Dreadstone%" OR
-	  name LIKE "%Ametrine%" OR
-	  name LIKE "%Eye of Zul%" AND
-	  entry > 30000;
+WHERE (
+    name LIKE '%Cardinal Ruby%' OR
+    name LIKE '%King''s Amber%' OR
+    name LIKE '%Majestic Zircon%' OR
+    name LIKE '%Dreadstone%' OR
+    name LIKE '%Ametrine%' OR
+    name LIKE '%Eye of Zul%'
+)
+AND entry > 30000;
 --Delete all Epic Gems of 3.2
 --Disable prospecting Titanium Ore 3.2
 DELETE FROM prospecting_loot_template
