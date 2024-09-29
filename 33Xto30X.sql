@@ -1,6 +1,6 @@
 -- Disable weekly quests in 3.3
 INSERT INTO disables (sourceType, entry, comment)
-SELECT 1 AS sourceType, ID AS entry, 'Progressive Disabled 3.3 to 3.2' AS comment
+SELECT 1 AS sourceType, ID AS entry, 'Disabled dungeon/raid 3.3' AS comment
 FROM quest_template 
 WHERE RewardItem1 = '49426' 
   AND LogTitle NOT LIKE '%Daily%';
@@ -49,12 +49,12 @@ VALUES (2, 631, 'Disabled dungeon/raid 3.3'),
 	   (3, 30, 'Disabled battleground 3.2'),
        (2, 668, 'Disabled dungeon/raid 3.3');
 --All 3.1-3.3 raids and dungeons disable
---3.2 Daily quests disable
+--3.2 Quests disable
 INSERT INTO disables (sourceType, entry, comment)
 VALUES (2, 14103, 'Disabled Quests 3.2'),
 	   (2, 14199, 'Disabled Quests 3.2'),
 	   (2, 14151, 'Disabled Quests 3.2');
---3.2 Daily quests disable
+--3.2 Quests disable
 --Delete all S8 Gears
 DELETE FROM npc_vendor
 WHERE item IN (
