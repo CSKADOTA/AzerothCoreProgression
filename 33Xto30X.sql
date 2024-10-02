@@ -24,6 +24,25 @@ WHERE LogTitle LIKE '%Proof of Demise:%';
 UPDATE quest_template
 SET RewardItem1 = '40753'
 WHERE LogTitle LIKE '%Timear Foresees%';
+INSERT INTO creature_queststarter (id,quest)
+SELECT 20375 AS id, ID AS quest
+FROM quest_template 
+WHERE LogTitle LIKE '%Proof of Demise:%';
+INSERT INTO creature_queststarter (id,quest)
+SELECT 31439 AS id, ID AS quest
+FROM quest_template 
+WHERE LogTitle LIKE '%Timear Foresees%';
+INSERT INTO pool_template (entry,max_limit,description) VALUES
+	 (60012,1,'Herotic DG daily'),
+     (60013,1,'Norm DG daily');
+INSERT INTO pool_quest (entry,pool_entry,description)
+SELECT ID AS entry, 60012 AS pool_entry, LogTitle AS description
+FROM quest_template 
+WHERE LogTitle LIKE '%Proof of Demise:%';
+INSERT INTO pool_quest (entry,pool_entry,description)
+SELECT ID AS entry, 60013 AS pool_entry, LogTitle AS description
+FROM quest_template 
+WHERE LogTitle LIKE '%Timear Foresees%';
 -- Replace daily quests emblems from trumph to Valor
 -- Disable NPC: Frozo the Renowned, VOA bosses
 UPDATE creature
@@ -31,7 +50,7 @@ SET phaseMask = '16384'
 WHERE id1 IN (40160,38433,35013,35360,33993);
 -- Disable NPC: Frozo the Renowned, VOA bosses
 -- Smelt Titansteel 20 Hours cooldown
-INSERT INTO acore_world.spell_cooldown_overrides (Id,RecoveryTime,CategoryRecoveryTime,StartRecoveryTime,StartRecoveryCategory,Comment) VALUES
+INSERT INTO spell_cooldown_overrides (Id,RecoveryTime,CategoryRecoveryTime,StartRecoveryTime,StartRecoveryCategory,Comment) VALUES
 	 (55208,72000000,0,0,0,'3.3.3 cooldown');
 -- Smelt Titansteel 20 Hours cooldown
 -- All 3.1-3.3 raids and dungeons disable
