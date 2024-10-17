@@ -4,3 +4,6 @@ There is only 3.3 to 3.0 script here. I will work on 3.0 to 3.1, 3.1 to 3.2, the
 The Script hasn't been tested yet. You may test it and report the issue.
 The progression module of AC doesn't work after TBC. And this script doesn't compatible with AC progression module.
 Beawre that, SQL operation doesn't support an UNDO operation, always backup your database before you apply the SQL scripts.
+I started a new server, please see register.fuhx.top:8765 for more info.
+
+Thanks!
